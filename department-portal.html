@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Department Admin Portal</title>
+    <title>Department Portal - Petrolube Visitor Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ==================== Global Resets & Variables ==================== */
+        /* ==================== Professional Corporate Theme ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -18,208 +18,197 @@
         }
 
         :root {
-            /* Soft, Muted Green Palette */
-            --primary-soft: #7ca982;
-            --primary-muted: #a8c5ad;
-            --primary-pale: #d4e4d7;
-            --primary-whisper: #f0f6f1;
+            /* Primary Gradient */
+            --primary-gradient: linear-gradient(135deg, rgb(50, 99, 55) 0%, rgb(74, 222, 128) 100%);
+            --primary-dark: rgb(50, 99, 55);
+            --primary-light: rgb(74, 222, 128);
 
-            /* Neutral, Eye-Friendly Colors */
-            --bg-base: #f9faf9;
-            --bg-elevated: #ffffff;
-            --bg-subtle: #f3f5f3;
+            /* Professional Color Palette */
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
 
-            /* Soft Text Colors */
-            --text-primary: #4a5555;
-            --text-secondary: #7a8585;
-            --text-tertiary: #a0aaaa;
-            --text-muted: #c0c8c8;
+            /* Status Colors */
+            --status-pending: #f59e0b;
+            --status-security: #8b5cf6;
+            --status-approved: #10b981;
+            --status-rejected: #ef4444;
+            --status-info: #3b82f6;
 
-            /* Gentle Status Colors */
-            --status-pending: #d4a574;
-            --status-pending-bg: #faf6f0;
-            --status-security: #9fa4c9;
-            --status-security-bg: #f5f6fc;
-            --status-approved: #7ca982;
-            --status-approved-bg: #f0f6f1;
-            --status-rejected: #c98a8a;
-            --status-rejected-bg: #faf3f3;
-
-            /* Soft Accent Colors */
-            --accent-info: #8ba9c9;
-            --accent-info-bg: #f3f7fb;
-            --accent-warning: #d4a574;
-            --accent-warning-bg: #faf6f0;
-            --accent-danger: #c98a8a;
-            --accent-danger-bg: #faf3f3;
-
-            /* Gentle Borders & Separators */
-            --border-subtle: #e8ebe8;
-            --border-soft: #dde2dd;
-            --separator: #f0f2f0;
-
-            /* Subtle Shadows */
-            --shadow-whisper: 0 1px 3px rgba(0, 0, 0, 0.03);
-            --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-gentle: 0 4px 16px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.06);
-
-            /* Slow, Gentle Transitions */
-            --transition-slow: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-            --transition-gentle: all 0.3s ease-out;
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.7;
-            font-weight: 400;
-            font-size: 15px;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+            font-size: 14px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         /* ==================== Header ==================== */
         .header {
-            background: var(--bg-elevated);
-            border-bottom: 1px solid var(--border-subtle);
+            background: var(--primary-gradient);
+            box-shadow: var(--shadow-md);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         .header-content {
-            max-width: 1320px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 3rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 1.25rem;
+            gap: 1rem;
         }
 
         .header-left i {
             font-size: 1.75rem;
-            color: var(--primary-soft);
-            opacity: 0.9;
+            color: var(--white);
         }
 
-        .header-left h1 {
-            font-size: 1.375rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            letter-spacing: -0.3px;
+        .header-title {
+            color: var(--white);
+        }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .header-title p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-top: 0.125rem;
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        .user-info {
+        .user-badge {
             display: flex;
             align-items: center;
-            gap: 0.875rem;
-            color: var(--text-secondary);
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-subtle);
-            border-radius: 100px;
-            font-size: 0.9375rem;
-            font-weight: 400;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
-        .user-info i {
+        .user-badge i {
             font-size: 1.25rem;
-            color: var(--primary-muted);
-            opacity: 0.8;
         }
 
         .logout-btn {
-            padding: 0.75rem 1.75rem;
-            background: var(--bg-subtle);
-            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
             border: none;
-            border-radius: 100px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 0.9375rem;
-            font-weight: 400;
-            transition: var(--transition-gentle);
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 0.625rem;
+            gap: 0.5rem;
         }
 
         .logout-btn:hover {
-            background: var(--accent-danger-bg);
-            color: var(--accent-danger);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         /* ==================== Container ==================== */
         .container {
-            max-width: 1320px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem;
+            padding: 2rem;
         }
 
         /* ==================== Tabs ==================== */
         .tabs {
             display: flex;
-            gap: 1rem;
-            background: var(--bg-elevated);
-            padding: 1.5rem;
-            border-radius: 24px;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            border: 1px solid var(--border-subtle);
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border: 1px solid var(--gray-200);
         }
 
         .tab-btn {
-            padding: 1rem 2rem;
+            flex: 1;
+            padding: 0.75rem 1.5rem;
             background: transparent;
             border: none;
-            border-radius: 100px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 0.9375rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            transition: var(--transition-gentle);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .tab-btn:hover {
-            background: var(--bg-subtle);
-            color: var(--text-primary);
+            background: var(--gray-100);
+            color: var(--gray-800);
         }
 
         .tab-btn.active {
-            background: var(--primary-whisper);
-            color: var(--primary-soft);
-            font-weight: 500;
+            background: var(--primary-gradient);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
         }
 
         .badge {
-            background: var(--status-pending);
-            color: white;
-            border-radius: 100px;
-            padding: 0.25rem 0.625rem;
+            background: var(--status-rejected);
+            color: var(--white);
+            border-radius: 12px;
+            padding: 0.125rem 0.5rem;
             font-size: 0.75rem;
-            font-weight: 500;
-            min-width: 1.375rem;
+            font-weight: 700;
+            min-width: 1.25rem;
             text-align: center;
         }
 
         .tab-btn.active .badge {
-            background: var(--primary-soft);
+            background: var(--white);
+            color: var(--primary-dark);
         }
 
         /* ==================== Tab Content ==================== */
@@ -231,218 +220,213 @@
             display: block;
         }
 
-        .tab-content h2 {
-            font-size: 1.75rem;
-            font-weight: 500;
-            margin-bottom: 2.5rem;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
+        .page-header {
+            margin-bottom: 2rem;
         }
 
-        .tab-content h3 {
-            font-size: 1.125rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            letter-spacing: -0.2px;
+        .page-header h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--gray-500);
+            font-size: 0.875rem;
         }
 
         /* ==================== Metrics Grid ==================== */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .metric-card {
-            background: var(--bg-elevated);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            transition: var(--transition-gentle);
-            border: 1px solid var(--border-subtle);
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s;
         }
 
         .metric-card:hover {
-            box-shadow: var(--shadow-gentle);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .metric-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .metric-icon {
-            width: 4.5rem;
-            height: 4.5rem;
-            border-radius: 18px;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.875rem;
-            flex-shrink: 0;
+            font-size: 1.25rem;
         }
 
-        .pending .metric-icon {
-            background: var(--status-pending-bg);
+        .metric-card.pending .metric-icon {
+            background: rgba(245, 158, 11, 0.1);
             color: var(--status-pending);
         }
 
-        .security .metric-icon {
-            background: var(--status-security-bg);
+        .metric-card.security .metric-icon {
+            background: rgba(139, 92, 246, 0.1);
             color: var(--status-security);
         }
 
-        .approved .metric-icon {
-            background: var(--status-approved-bg);
+        .metric-card.approved .metric-icon {
+            background: rgba(16, 185, 129, 0.1);
             color: var(--status-approved);
         }
 
-        .rejected .metric-icon {
-            background: var(--status-rejected-bg);
+        .metric-card.rejected .metric-icon {
+            background: rgba(239, 68, 68, 0.1);
             color: var(--status-rejected);
         }
 
-        .metric-info h3 {
-            font-size: 2.25rem;
-            font-weight: 300;
-            margin: 0 0 0.25rem 0;
-            color: var(--text-primary);
-        }
-
-        .metric-info p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin: 0;
-            font-weight: 400;
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
         }
 
         /* ==================== Activity Section ==================== */
         .activity-section {
-            background: var(--bg-elevated);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 3rem;
-            border: 1px solid var(--border-subtle);
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
         }
 
         .activity-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
 
         .activity-card {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            padding: 2rem;
-            background: var(--bg-subtle);
-            border-radius: 16px;
-            transition: var(--transition-gentle);
-        }
-
-        .activity-card:hover {
-            background: var(--primary-whisper);
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
         }
 
         .activity-card i {
-            font-size: 2rem;
-            color: var(--primary-muted);
-            opacity: 0.8;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
         }
 
         .activity-info h4 {
-            font-size: 1.875rem;
-            font-weight: 300;
-            margin: 0 0 0.25rem 0;
-            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1;
         }
 
         .activity-info p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin: 0;
-            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 0.25rem;
         }
 
-        /* ==================== Charts Section ==================== */
+        /* ==================== Charts ==================== */
         .charts-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .chart-container {
-            background: var(--bg-elevated);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-subtle);
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
         }
 
         .chart-container canvas {
-            max-height: 320px;
+            max-height: 300px;
         }
 
-        /* ==================== Tab Header ==================== */
-        .tab-header {
+        /* ==================== Table ==================== */
+        .table-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            gap: 1.5rem;
         }
 
-        /* ==================== Search Box ==================== */
         .search-box {
             position: relative;
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
         }
 
         .search-box i {
             position: absolute;
-            left: 1.5rem;
+            left: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-tertiary);
-            font-size: 1rem;
+            color: var(--gray-400);
         }
 
         .search-box input {
             width: 100%;
-            padding: 1rem 1.5rem 1rem 3.5rem;
-            border: 1px solid var(--border-soft);
-            border-radius: 100px;
-            font-size: 0.9375rem;
-            background: var(--bg-elevated);
-            transition: var(--transition-gentle);
-            font-weight: 400;
-            color: var(--text-primary);
+            padding: 0.625rem 1rem 0.625rem 2.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            background: var(--white);
+            transition: all 0.2s;
         }
 
         .search-box input:focus {
             outline: none;
-            border-color: var(--primary-muted);
-            background: var(--primary-whisper);
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 3px rgba(50, 99, 55, 0.1);
         }
 
-        .search-box input::placeholder {
-            color: var(--text-tertiary);
-            font-weight: 300;
-        }
-
-        /* ==================== Table ==================== */
         .table-container {
-            background: var(--bg-elevated);
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             overflow: hidden;
-            border: 1px solid var(--border-subtle);
+            border: 1px solid var(--gray-200);
         }
 
         .data-table {
@@ -451,40 +435,38 @@
         }
 
         .data-table thead {
-            background: var(--bg-subtle);
+            background: var(--gray-50);
+            border-bottom: 2px solid var(--gray-200);
         }
 
         .data-table th {
-            padding: 1.5rem 1.75rem;
+            padding: 1rem 1.5rem;
             text-align: left;
-            font-weight: 500;
-            color: var(--text-secondary);
-            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.05em;
             cursor: pointer;
-            user-select: none;
-            transition: var(--transition-gentle);
         }
 
         .data-table th:hover {
-            background: var(--primary-whisper);
-            color: var(--primary-soft);
+            background: var(--gray-100);
         }
 
         .data-table th i {
             margin-left: 0.5rem;
-            font-size: 0.6875rem;
+            font-size: 0.625rem;
             opacity: 0.5;
         }
 
         .data-table tbody tr {
-            border-bottom: 1px solid var(--separator);
-            transition: var(--transition-gentle);
+            border-bottom: 1px solid var(--gray-200);
+            transition: background 0.2s;
         }
 
         .data-table tbody tr:hover {
-            background: var(--primary-whisper);
+            background: var(--gray-50);
         }
 
         .data-table tbody tr:last-child {
@@ -492,117 +474,122 @@
         }
 
         .data-table td {
-            padding: 1.75rem;
-            font-size: 0.9375rem;
-            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            font-size: 0.875rem;
+            color: var(--gray-700);
         }
 
         .status-badge {
             display: inline-block;
-            padding: 0.5rem 1.25rem;
-            border-radius: 100px;
-            font-size: 0.8125rem;
-            font-weight: 400;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: capitalize;
         }
 
         .status-badge.pending {
-            background: var(--status-pending-bg);
+            background: rgba(245, 158, 11, 0.1);
             color: var(--status-pending);
+            border: 1px solid rgba(245, 158, 11, 0.2);
         }
 
         .status-badge.approved {
-            background: var(--status-approved-bg);
+            background: rgba(16, 185, 129, 0.1);
             color: var(--status-approved);
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
         .status-badge.rejected {
-            background: var(--status-rejected-bg);
+            background: rgba(239, 68, 68, 0.1);
             color: var(--status-rejected);
+            border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
         .vehicle-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.25rem;
-            border-radius: 100px;
-            font-size: 0.8125rem;
-            font-weight: 400;
-            background: var(--bg-subtle);
-            color: var(--text-secondary);
+            gap: 0.375rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--gray-100);
+            color: var(--gray-700);
         }
 
         /* ==================== Buttons ==================== */
         .btn {
-            padding: 0.875rem 2rem;
+            padding: 0.625rem 1.25rem;
             border: none;
-            border-radius: 100px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 0.9375rem;
-            font-weight: 400;
-            transition: var(--transition-gentle);
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
             text-decoration: none;
         }
 
-        .btn:hover {
-            box-shadow: var(--shadow-gentle);
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .btn-primary {
-            background: var(--primary-soft);
-            color: white;
+            background: var(--primary-gradient);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
         }
 
-        .btn-primary:hover {
-            background: var(--primary-muted);
+        .btn-primary:hover:not(:disabled) {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
-            background: var(--bg-subtle);
-            color: var(--text-secondary);
+            background: var(--gray-200);
+            color: var(--gray-700);
         }
 
-        .btn-secondary:hover {
-            background: var(--border-soft);
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--gray-300);
         }
 
-        .btn-approve {
+        .btn-success {
             background: var(--status-approved);
-            color: white;
+            color: var(--white);
         }
 
-        .btn-approve:hover {
-            background: var(--primary-muted);
+        .btn-success:hover:not(:disabled) {
+            background: #059669;
         }
 
-        .btn-reject {
+        .btn-danger {
             background: var(--status-rejected);
-            color: white;
+            color: var(--white);
         }
 
-        .btn-reject:hover {
-            opacity: 0.9;
+        .btn-danger:hover:not(:disabled) {
+            background: #dc2626;
         }
 
         .btn-sm {
-            padding: 0.625rem 1.5rem;
-            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
         }
 
         .btn-outline {
             background: transparent;
-            border: 1px solid var(--border-soft);
-            color: var(--text-secondary);
+            border: 1px solid var(--gray-300);
+            color: var(--gray-700);
         }
 
-        .btn-outline:hover {
-            background: var(--bg-subtle);
-            border-color: var(--primary-muted);
-            color: var(--text-primary);
+        .btn-outline:hover:not(:disabled) {
+            background: var(--gray-50);
+            border-color: var(--gray-400);
         }
 
         /* ==================== Modal ==================== */
@@ -614,193 +601,189 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(249, 250, 249, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
         }
 
         .modal.active {
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 1rem;
         }
 
         .modal-content {
-            background: var(--bg-elevated);
-            border-radius: 24px;
-            width: 90%;
-            max-width: 650px;
+            background: var(--white);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-xl);
         }
 
         .modal-content.large {
-            max-width: 950px;
+            max-width: 900px;
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2.5rem;
-            border-bottom: 1px solid var(--separator);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--gray-50);
         }
 
         .modal-header h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 0;
-            color: var(--text-primary);
-            letter-spacing: -0.3px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
         }
 
         .close-btn {
-            background: var(--bg-subtle);
+            background: var(--gray-200);
             border: none;
-            font-size: 1.25rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 8px;
             cursor: pointer;
-            color: var(--text-tertiary);
-            transition: var(--transition-gentle);
-            padding: 0;
-            width: 2.5rem;
-            height: 2.5rem;
+            color: var(--gray-600);
+            transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            font-weight: 300;
+            font-size: 1.25rem;
+            font-weight: 700;
         }
 
         .close-btn:hover {
-            background: var(--accent-danger-bg);
-            color: var(--accent-danger);
+            background: var(--gray-300);
+            color: var(--gray-800);
         }
 
         .modal-body {
-            padding: 2.5rem;
+            padding: 1.5rem;
         }
 
         .modal-footer {
-            padding: 2rem 2.5rem;
-            border-top: 1px solid var(--separator);
+            padding: 1.5rem;
+            border-top: 1px solid var(--gray-200);
             display: flex;
             justify-content: flex-end;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 0.75rem;
+            background: var(--gray-50);
+        }
+
+        /* ==================== Form Elements ==================== */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.625rem 0.875rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            background: var(--white);
+            color: var(--gray-900);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 3px rgba(50, 99, 55, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.5;
         }
 
         /* ==================== Detail Sections ==================== */
         .detail-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .detail-section {
-            margin-bottom: 2.5rem;
+            background: var(--gray-50);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid var(--gray-200);
         }
 
         .detail-section h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--separator);
-            color: var(--text-primary);
-            letter-spacing: 0.3px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gray-300);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .detail-item {
-            margin-bottom: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
         }
 
         .detail-item label {
             display: block;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            margin-bottom: 0.25rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
         }
 
         .detail-item p {
-            font-size: 0.9375rem;
-            color: var(--text-primary);
-            margin: 0;
-            font-weight: 400;
+            font-size: 0.875rem;
+            color: var(--gray-900);
+            font-weight: 500;
         }
 
         .document-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.625rem;
-            color: var(--primary-soft);
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-gradient);
+            color: var(--white);
             text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 400;
-            padding: 0.75rem 1.5rem;
-            background: var(--primary-whisper);
-            border-radius: 100px;
-            transition: var(--transition-gentle);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
         }
 
         .document-link:hover {
-            background: var(--primary-pale);
-        }
-
-        /* ==================== Approval Actions ==================== */
-        .approval-actions {
-            width: 100%;
-        }
-
-        .remarks-section {
-            margin-bottom: 2rem;
-        }
-
-        .remarks-section label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            font-size: 0.9375rem;
-        }
-
-        .remarks-section textarea,
-        #rejectionReason {
-            width: 100%;
-            padding: 1.25rem;
-            border: 1px solid var(--border-soft);
-            border-radius: 16px;
-            font-family: inherit;
-            font-size: 0.9375rem;
-            resize: vertical;
-            transition: var(--transition-gentle);
-            background: var(--bg-elevated);
-            color: var(--text-primary);
-            font-weight: 400;
-            line-height: 1.6;
-            min-height: 120px;
-        }
-
-        .remarks-section textarea:focus,
-        #rejectionReason:focus {
-            outline: none;
-            border-color: var(--primary-muted);
-            background: var(--primary-whisper);
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
         }
 
         /* ==================== File Upload ==================== */
         .file-upload-area {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         .file-upload-area input[type="file"] {
@@ -812,71 +795,71 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 3.5rem;
-            border: 1px solid var(--border-soft);
-            border-radius: 20px;
+            padding: 2rem;
+            border: 2px dashed var(--gray-300);
+            border-radius: 8px;
             cursor: pointer;
-            transition: var(--transition-gentle);
-            background: var(--bg-subtle);
+            transition: all 0.2s;
+            background: var(--gray-50);
         }
 
         .file-upload-area label:hover {
-            border-color: var(--primary-muted);
-            background: var(--primary-whisper);
+            border-color: var(--primary-dark);
+            background: var(--white);
         }
 
         .file-upload-area label i {
-            font-size: 3rem;
-            color: var(--primary-muted);
-            margin-bottom: 1.25rem;
-            opacity: 0.7;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
         }
 
         .file-upload-area label span {
-            font-weight: 400;
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.875rem;
         }
 
         .file-upload-area label small {
-            color: var(--text-tertiary);
-            font-size: 0.8125rem;
-            margin-top: 0.625rem;
+            color: var(--gray-500);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         /* ==================== Logs Table ==================== */
         .logs-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1.5rem;
-            border-radius: 16px;
+            margin-top: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid var(--separator);
         }
 
         .logs-table th,
         .logs-table td {
-            padding: 1.25rem 1.5rem;
+            padding: 0.75rem 1rem;
             text-align: left;
-            border-bottom: 1px solid var(--separator);
         }
 
         .logs-table th {
-            background: var(--bg-subtle);
-            font-weight: 500;
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
+            background: var(--gray-50);
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--gray-700);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--gray-200);
         }
 
         .logs-table td {
-            font-size: 0.9375rem;
-            color: var(--text-primary);
+            font-size: 0.875rem;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-200);
         }
 
         .logs-table tbody tr:hover {
-            background: var(--primary-whisper);
+            background: var(--gray-50);
         }
 
         .logs-table tbody tr:last-child td {
@@ -885,67 +868,59 @@
 
         /* ==================== Alert ==================== */
         .alert {
-            padding: 1.75rem;
-            border-radius: 16px;
-            margin-bottom: 2rem;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: flex-start;
-            gap: 1.25rem;
+            gap: 0.75rem;
             border: 1px solid;
         }
 
         .alert i {
             font-size: 1.25rem;
-            opacity: 0.8;
-            margin-top: 0.125rem;
-        }
-
-        .alert strong {
-            font-weight: 500;
-        }
-
-        .alert p {
-            font-weight: 400;
-            margin-top: 0.375rem;
+            flex-shrink: 0;
         }
 
         .alert-info {
-            background: var(--accent-info-bg);
-            color: var(--accent-info);
-            border-color: var(--accent-info);
-            border-opacity: 0.2;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--status-info);
+            border-color: rgba(59, 130, 246, 0.2);
         }
 
-        .alert-warning {
-            background: var(--accent-warning-bg);
-            color: var(--accent-warning);
-            border-color: var(--accent-warning);
-            border-opacity: 0.2;
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--status-approved);
+            border-color: rgba(16, 185, 129, 0.2);
         }
 
         .alert-danger {
-            background: var(--accent-danger-bg);
-            color: var(--accent-danger);
-            border-color: var(--accent-danger);
-            border-opacity: 0.2;
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--status-rejected);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .alert strong {
+            font-weight: 700;
         }
 
         /* ==================== Toast ==================== */
         .toast {
             position: fixed;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            background: var(--primary-soft);
-            color: white;
-            padding: 1.25rem 2rem;
-            border-radius: 100px;
-            box-shadow: var(--shadow-gentle);
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-xl);
             display: none;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
             z-index: 2000;
-            font-weight: 400;
-            font-size: 0.9375rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            max-width: 400px;
         }
 
         .toast.show {
@@ -967,54 +942,40 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--bg-subtle);
+            background: var(--gray-100);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary-pale);
-            border-radius: 100px;
+            background: var(--gray-400);
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-muted);
+            background: var(--gray-500);
         }
 
-        /* ==================== Responsive Design ==================== */
+        /* ==================== Responsive ==================== */
         @media (max-width: 768px) {
             .container {
-                padding: 1.5rem;
+                padding: 1rem;
             }
 
             .header-content {
-                padding: 1.5rem;
                 flex-direction: column;
-                gap: 1.5rem;
+                padding: 1rem;
+                gap: 1rem;
             }
 
             .tabs {
                 flex-direction: column;
-                padding: 1rem;
             }
 
             .tab-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .tab-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .search-box {
-                max-width: 100%;
+                justify-content: flex-start;
             }
 
             .metrics-grid,
-            .activity-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .activity-grid,
             .charts-section {
                 grid-template-columns: 1fr;
             }
@@ -1027,22 +988,8 @@
                 min-width: 800px;
             }
 
-            .modal-content {
-                width: 95%;
-                max-height: 95vh;
-            }
-
             .detail-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-            }
-
-            .action-buttons .btn {
-                width: 100%;
-                justify-content: center;
             }
         }
     </style>
@@ -1053,13 +1000,16 @@
         <div class="header-content">
             <div class="header-left">
                 <i class="fas fa-building"></i>
-                <h1>Department Admin Portal</h1>
+                <div class="header-title">
+                    <h1>Department Admin Portal</h1>
+                    <p>Visitor Permission Management System</p>
+                </div>
             </div>
             <div class="header-right">
-                <span class="user-info">
+                <div class="user-badge">
                     <i class="fas fa-user-circle"></i>
                     <span id="currentUser">Department Admin</span>
-                </span>
+                </div>
                 <button class="logout-btn" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
@@ -1069,7 +1019,7 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Tabs Navigation -->
+        <!-- Tabs -->
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('dashboard')">
                 <i class="fas fa-chart-line"></i> Dashboard
@@ -1079,63 +1029,66 @@
                 <span class="badge" id="pendingBadge">0</span>
             </button>
             <button class="tab-btn" onclick="switchTab('approved')">
-                <i class="fas fa-check-circle"></i> Approved Permissions
+                <i class="fas fa-check-circle"></i> Approved
             </button>
             <button class="tab-btn" onclick="switchTab('rejected')">
-                <i class="fas fa-times-circle"></i> Rejected Permissions
+                <i class="fas fa-times-circle"></i> Rejected
             </button>
         </div>
 
         <!-- Dashboard Tab -->
         <div id="dashboardTab" class="tab-content active">
-            <h2>Dashboard Overview</h2>
+            <div class="page-header">
+                <h2>Dashboard</h2>
+                <p>Overview of visitor permissions and activity</p>
+            </div>
 
-            <!-- Metrics Cards -->
+            <!-- Metrics -->
             <div class="metrics-grid">
                 <div class="metric-card pending">
-                    <div class="metric-icon">
-                        <i class="fas fa-hourglass-half"></i>
+                    <div class="metric-header">
+                        <span class="metric-title">Pending Review</span>
+                        <div class="metric-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
                     </div>
-                    <div class="metric-info">
-                        <h3 id="pendingCount">0</h3>
-                        <p>Pending Review</p>
-                    </div>
+                    <div class="metric-value" id="pendingCount">0</div>
                 </div>
 
                 <div class="metric-card security">
-                    <div class="metric-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="metric-header">
+                        <span class="metric-title">At Security</span>
+                        <div class="metric-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
                     </div>
-                    <div class="metric-info">
-                        <h3 id="securityCount">0</h3>
-                        <p>At Security</p>
-                    </div>
+                    <div class="metric-value" id="securityCount">0</div>
                 </div>
 
                 <div class="metric-card approved">
-                    <div class="metric-icon">
-                        <i class="fas fa-check-double"></i>
+                    <div class="metric-header">
+                        <span class="metric-title">Approved</span>
+                        <div class="metric-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
                     </div>
-                    <div class="metric-info">
-                        <h3 id="approvedCount">0</h3>
-                        <p>Fully Approved</p>
-                    </div>
+                    <div class="metric-value" id="approvedCount">0</div>
                 </div>
 
                 <div class="metric-card rejected">
-                    <div class="metric-icon">
-                        <i class="fas fa-ban"></i>
+                    <div class="metric-header">
+                        <span class="metric-title">Rejected</span>
+                        <div class="metric-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
                     </div>
-                    <div class="metric-info">
-                        <h3 id="rejectedCount">0</h3>
-                        <p>Rejected</p>
-                    </div>
+                    <div class="metric-value" id="rejectedCount">0</div>
                 </div>
             </div>
 
-            <!-- Today's Activity -->
+            <!-- Activity -->
             <div class="activity-section">
-                <h3>Today's Activity</h3>
+                <h3 class="section-title">Today's Activity</h3>
                 <div class="activity-grid">
                     <div class="activity-card">
                         <i class="fas fa-truck"></i>
@@ -1168,26 +1121,30 @@
                 </div>
             </div>
 
-            <!-- Charts Section -->
+            <!-- Charts -->
             <div class="charts-section">
                 <div class="chart-container">
-                    <h3>Requests by Department</h3>
+                    <h3 class="section-title">Requests by Department</h3>
                     <canvas id="departmentChart"></canvas>
                 </div>
                 <div class="chart-container">
-                    <h3>Status Distribution</h3>
+                    <h3 class="section-title">Status Distribution</h3>
                     <canvas id="statusChart"></canvas>
                 </div>
             </div>
         </div>
 
-        <!-- Pending Requests Tab -->
+        <!-- Pending Tab -->
         <div id="pendingTab" class="tab-content">
-            <div class="tab-header">
+            <div class="page-header">
                 <h2>Pending Requests</h2>
+                <p>Review and process visitor permission requests</p>
+            </div>
+
+            <div class="table-header">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="pendingSearch" placeholder="Search by name, ID, or department..." onkeyup="filterTable('pending')">
+                    <input type="text" id="pendingSearch" placeholder="Search requests..." onkeyup="filterTable('pending')">
                 </div>
             </div>
 
@@ -1199,25 +1156,27 @@
                             <th onclick="sortTable('pending', 1)">Visitor Name <i class="fas fa-sort"></i></th>
                             <th onclick="sortTable('pending', 2)">Department <i class="fas fa-sort"></i></th>
                             <th onclick="sortTable('pending', 3)">Purpose <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('pending', 4)">Vehicle Type <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('pending', 5)">Submission Date <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('pending', 4)">Vehicle <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('pending', 5)">Date <i class="fas fa-sort"></i></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="pendingTableBody">
-                        <!-- Data will be populated by JavaScript -->
-                    </tbody>
+                    <tbody id="pendingTableBody"></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Approved Permissions Tab -->
+        <!-- Approved Tab -->
         <div id="approvedTab" class="tab-content">
-            <div class="tab-header">
+            <div class="page-header">
                 <h2>Approved Permissions</h2>
+                <p>View and manage approved visitor permissions</p>
+            </div>
+
+            <div class="table-header">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="approvedSearch" placeholder="Search by name, ID, or plate number..." onkeyup="filterTable('approved')">
+                    <input type="text" id="approvedSearch" placeholder="Search permissions..." onkeyup="filterTable('approved')">
                 </div>
             </div>
 
@@ -1225,30 +1184,32 @@
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th onclick="sortTable('approved', 0)">Permission ID <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('approved', 1)">Visitor Name <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('approved', 0)">ID <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('approved', 1)">Visitor <i class="fas fa-sort"></i></th>
                             <th onclick="sortTable('approved', 2)">Department <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('approved', 3)">Vehicle Type <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('approved', 4)">Plate Number <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('approved', 5)">Visit Period <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('approved', 6)">Entry Count <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('approved', 3)">Vehicle <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('approved', 4)">Plate <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('approved', 5)">Period <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('approved', 6)">Entries <i class="fas fa-sort"></i></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="approvedTableBody">
-                        <!-- Data will be populated by JavaScript -->
-                    </tbody>
+                    <tbody id="approvedTableBody"></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Rejected Permissions Tab -->
+        <!-- Rejected Tab -->
         <div id="rejectedTab" class="tab-content">
-            <div class="tab-header">
+            <div class="page-header">
                 <h2>Rejected Permissions</h2>
+                <p>View rejected visitor permission requests</p>
+            </div>
+
+            <div class="table-header">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="rejectedSearch" placeholder="Search by name, ID, or department..." onkeyup="filterTable('rejected')">
+                    <input type="text" id="rejectedSearch" placeholder="Search rejected..." onkeyup="filterTable('rejected')">
                 </div>
             </div>
 
@@ -1256,18 +1217,16 @@
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th onclick="sortTable('rejected', 0)">Request ID <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('rejected', 1)">Visitor Name <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('rejected', 0)">ID <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('rejected', 1)">Visitor <i class="fas fa-sort"></i></th>
                             <th onclick="sortTable('rejected', 2)">Department <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('rejected', 3)">Vehicle Type <i class="fas fa-sort"></i></th>
-                            <th onclick="sortTable('rejected', 4)">Submission Date <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('rejected', 3)">Vehicle <i class="fas fa-sort"></i></th>
+                            <th onclick="sortTable('rejected', 4)">Date <i class="fas fa-sort"></i></th>
                             <th onclick="sortTable('rejected', 5)">Rejected By <i class="fas fa-sort"></i></th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="rejectedTableBody">
-                        <!-- Data will be populated by JavaScript -->
-                    </tbody>
+                    <tbody id="rejectedTableBody"></tbody>
                 </table>
             </div>
         </div>
@@ -1280,38 +1239,31 @@
                 <h2>Request Details</h2>
                 <button class="close-btn" onclick="closeModal('requestDetailModal')">&times;</button>
             </div>
-            <div class="modal-body" id="requestDetailContent">
-                <!-- Content will be populated dynamically -->
-            </div>
+            <div class="modal-body" id="requestDetailContent"></div>
             <div class="modal-footer">
-                <div id="approvalActions" class="approval-actions">
-                    <div class="remarks-section">
-                        <label for="approvalRemarks">Remarks (optional)</label>
-                        <textarea id="approvalRemarks" placeholder="Add any remarks or notes..."></textarea>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="btn btn-reject" onclick="rejectRequest()">
-                            <i class="fas fa-times"></i> Reject
-                        </button>
-                        <button class="btn btn-approve" onclick="approveRequest()">
-                            <i class="fas fa-check"></i> Approve
-                        </button>
-                    </div>
+                <div class="form-group" style="width: 100%; margin-bottom: 1rem;">
+                    <label class="form-label" for="approvalRemarks">Remarks (Optional)</label>
+                    <textarea id="approvalRemarks" class="form-control" placeholder="Add any remarks or notes..."></textarea>
                 </div>
+                <button class="btn btn-secondary" onclick="closeModal('requestDetailModal')">Cancel</button>
+                <button class="btn btn-danger" onclick="rejectRequest()">
+                    <i class="fas fa-times"></i> Reject
+                </button>
+                <button class="btn btn-success" onclick="approveRequest()">
+                    <i class="fas fa-check"></i> Approve
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Approved Permission Detail Modal -->
+    <!-- Approved Detail Modal -->
     <div id="approvedDetailModal" class="modal">
         <div class="modal-content large">
             <div class="modal-header">
                 <h2>Approved Permission Details</h2>
                 <button class="close-btn" onclick="closeModal('approvedDetailModal')">&times;</button>
             </div>
-            <div class="modal-body" id="approvedDetailContent">
-                <!-- Content will be populated dynamically -->
-            </div>
+            <div class="modal-body" id="approvedDetailContent"></div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="downloadPermit()">
                     <i class="fas fa-download"></i> Download Permit
@@ -1331,19 +1283,21 @@
                 <button class="close-btn" onclick="closeModal('rejectionModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p style="margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary);">Please provide a reason for rejection</p>
-                <textarea id="rejectionReason" placeholder="Reason for rejection (required)" required></textarea>
+                <div class="form-group">
+                    <label class="form-label" for="rejectionReason">Rejection Reason *</label>
+                    <textarea id="rejectionReason" class="form-control" placeholder="Please provide a reason for rejection..." required></textarea>
+                </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('rejectionModal')">Cancel</button>
-                <button class="btn btn-reject" onclick="confirmRejection()">
+                <button class="btn btn-danger" onclick="confirmRejection()">
                     <i class="fas fa-times"></i> Confirm Rejection
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Upload Delivery Note Modal -->
+    <!-- Upload Delivery Modal -->
     <div id="uploadDeliveryModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1351,7 +1305,7 @@
                 <button class="close-btn" onclick="closeModal('uploadDeliveryModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p style="margin-bottom: 1.5rem; font-weight: 400; color: var(--text-secondary);">Upload delivery note for truck operation</p>
+                <p style="margin-bottom: 1rem; color: var(--gray-600);">Upload delivery note for truck operation</p>
                 <div class="file-upload-area">
                     <input type="file" id="deliveryNoteFile" accept="image/*,application/pdf" onchange="previewDeliveryNote()">
                     <label for="deliveryNoteFile">
@@ -1378,946 +1332,1056 @@
                 <h2>Rejected Request Details</h2>
                 <button class="close-btn" onclick="closeModal('rejectedDetailModal')">&times;</button>
             </div>
-            <div class="modal-body" id="rejectedDetailContent">
-                <!-- Content will be populated dynamically -->
-            </div>
+            <div class="modal-body" id="rejectedDetailContent"></div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeModal('rejectedDetailModal')">Close</button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification -->
+    <!-- Toast -->
     <div id="toast" class="toast"></div>
 
-    <!-- Chart.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
-        // ==================== Sample Data ====================
-        let currentUser = {
-            id: 'dept_001',
-            name: 'Department Admin',
-            role: 'department',
-            department: 'shipping'
-        };
+// Sample Data - In production, this would come from an API
+let currentUser = {
+    id: 'dept_001',
+    name: 'Department Admin',
+    role: 'department',
+    department: 'shipping'
+};
 
-        let permissionRequests = [
+let permissionRequests = [
+    {
+        id: 'REQ-2024-001',
+        visitorName: 'Ahmed Mohammed',
+        idNumber: '2345678901',
+        nationality: 'Saudi Arabia',
+        company: 'Gulf Logistics Co.',
+        department: 'shipping',
+        purpose: 'Delivery coordination meeting',
+        vehicleType: 'truck',
+        plateNumber: 'ABC-1234',
+        truckOperation: 'loading',
+        submissionDate: '2024-01-15T09:30:00',
+        status: 'pending_department',
+        documents: {
+            idDocument: 'path/to/id.jpg',
+            driverLicense: 'path/to/license.jpg',
+            safetyAttire: 'path/to/safety.jpg'
+        },
+        visitPeriod: {
+            start: '2024-01-20',
+            end: '2024-01-25'
+        }
+    },
+    {
+        id: 'REQ-2024-002',
+        visitorName: 'Fatima Al-Zahrani',
+        idNumber: '1234567890',
+        nationality: 'Saudi Arabia',
+        company: 'Tech Solutions',
+        department: 'raw_material',
+        purpose: 'Quality inspection',
+        vehicleType: 'car',
+        plateNumber: 'XYZ-5678',
+        submissionDate: '2024-01-15T10:45:00',
+        status: 'pending_department',
+        documents: {
+            idDocument: 'path/to/id2.jpg',
+            vehicleRegistration: 'path/to/reg.jpg'
+        },
+        visitPeriod: {
+            start: '2024-01-18',
+            end: '2024-01-18'
+        }
+    },
+    {
+        id: 'REQ-2024-003',
+        visitorName: 'John Smith',
+        idNumber: '9876543210',
+        nationality: 'United States',
+        company: 'International Traders',
+        department: 'shipping',
+        purpose: 'Contract negotiation',
+        vehicleType: 'none',
+        submissionDate: '2024-01-14T14:20:00',
+        status: 'pending_security',
+        departmentApproval: {
+            approvedBy: 'dept_001',
+            approvedAt: '2024-01-15T08:00:00',
+            remarks: 'Approved for meeting'
+        },
+        documents: {
+            idDocument: 'path/to/id3.jpg'
+        },
+        visitPeriod: {
+            start: '2024-01-16',
+            end: '2024-01-16'
+        }
+    },
+    {
+        id: 'REQ-2024-004',
+        visitorName: 'Sara Ahmed',
+        idNumber: '5555555555',
+        nationality: 'Egypt',
+        company: 'Lab Equipment Inc.',
+        department: 'lab',
+        purpose: 'Equipment installation',
+        vehicleType: 'truck',
+        plateNumber: 'DEF-9999',
+        truckOperation: 'unloading',
+        submissionDate: '2024-01-13T11:00:00',
+        status: 'approved',
+        departmentApproval: {
+            approvedBy: 'dept_002',
+            approvedAt: '2024-01-14T09:00:00',
+            remarks: 'Equipment needed urgently'
+        },
+        securityApproval: {
+            approvedBy: 'sec_001',
+            approvedAt: '2024-01-14T10:30:00',
+            parkingSlotAvailable: true,
+            remarks: 'Parking slot A-12 assigned'
+        },
+        documents: {
+            idDocument: 'path/to/id4.jpg',
+            driverLicense: 'path/to/license4.jpg',
+            safetyAttire: 'path/to/safety4.jpg'
+        },
+        visitPeriod: {
+            start: '2024-01-16',
+            end: '2024-01-20'
+        },
+        entryExitLogs: [
             {
-                id: 'REQ-2024-001',
-                visitorName: 'Ahmed Mohammed',
-                idNumber: '2345678901',
-                nationality: 'Saudi Arabia',
-                company: 'Gulf Logistics Co.',
-                department: 'shipping',
-                purpose: 'Delivery coordination meeting',
-                vehicleType: 'truck',
-                plateNumber: 'ABC-1234',
-                truckOperation: 'loading',
-                submissionDate: '2024-01-15T09:30:00',
-                status: 'pending_department',
-                documents: {
-                    idDocument: 'path/to/id.jpg',
-                    driverLicense: 'path/to/license.jpg',
-                    safetyAttire: 'path/to/safety.jpg'
-                },
-                visitPeriod: {
-                    start: '2024-01-20',
-                    end: '2024-01-25'
-                }
-            },
-            {
-                id: 'REQ-2024-002',
-                visitorName: 'Fatima Al-Zahrani',
-                idNumber: '1234567890',
-                nationality: 'Saudi Arabia',
-                company: 'Tech Solutions',
-                department: 'raw_material',
-                purpose: 'Quality inspection',
-                vehicleType: 'car',
-                plateNumber: 'XYZ-5678',
-                submissionDate: '2024-01-15T10:45:00',
-                status: 'pending_department',
-                documents: {
-                    idDocument: 'path/to/id2.jpg',
-                    vehicleRegistration: 'path/to/reg.jpg'
-                },
-                visitPeriod: {
-                    start: '2024-01-18',
-                    end: '2024-01-18'
-                }
-            },
-            {
-                id: 'REQ-2024-003',
-                visitorName: 'John Smith',
-                idNumber: '9876543210',
-                nationality: 'United States',
-                company: 'International Traders',
-                department: 'shipping',
-                purpose: 'Contract negotiation',
-                vehicleType: 'none',
-                submissionDate: '2024-01-14T14:20:00',
-                status: 'pending_security',
-                departmentApproval: {
-                    approvedBy: 'dept_001',
-                    approvedAt: '2024-01-15T08:00:00',
-                    remarks: 'Approved for meeting'
-                },
-                documents: {
-                    idDocument: 'path/to/id3.jpg'
-                },
-                visitPeriod: {
-                    start: '2024-01-16',
-                    end: '2024-01-16'
-                }
-            },
-            {
-                id: 'REQ-2024-004',
-                visitorName: 'Sara Ahmed',
-                idNumber: '5555555555',
-                nationality: 'Egypt',
-                company: 'Lab Equipment Inc.',
-                department: 'lab',
-                purpose: 'Equipment installation',
-                vehicleType: 'truck',
-                plateNumber: 'DEF-9999',
-                truckOperation: 'unloading',
-                submissionDate: '2024-01-13T11:00:00',
-                status: 'approved',
-                departmentApproval: {
-                    approvedBy: 'dept_002',
-                    approvedAt: '2024-01-14T09:00:00',
-                    remarks: 'Equipment needed urgently'
-                },
-                securityApproval: {
-                    approvedBy: 'sec_001',
-                    approvedAt: '2024-01-14T10:30:00',
-                    parkingSlotAvailable: true,
-                    remarks: 'Parking slot A-12 assigned'
-                },
-                documents: {
-                    idDocument: 'path/to/id4.jpg',
-                    driverLicense: 'path/to/license4.jpg',
-                    safetyAttire: 'path/to/safety4.jpg'
-                },
-                visitPeriod: {
-                    start: '2024-01-16',
-                    end: '2024-01-20'
-                },
-                entryExitLogs: [
-                    {
-                        entryTime: '2024-01-16T08:00:00',
-                        exitTime: '2024-01-16T17:00:00'
-                    }
-                ]
-            },
-            {
-                id: 'REQ-2024-005',
-                visitorName: 'Mohammed Ali',
-                idNumber: '7777777777',
-                nationality: 'Saudi Arabia',
-                company: 'Oil Transport Co.',
-                department: 'bulk_oil',
-                purpose: 'Oil delivery',
-                vehicleType: 'truck',
-                plateNumber: 'OIL-1111',
-                truckOperation: 'both',
-                submissionDate: '2024-01-12T13:30:00',
-                status: 'rejected_department',
-                rejection: {
-                    rejectedBy: 'dept_003',
-                    rejectedAt: '2024-01-13T09:00:00',
-                    reason: 'Incomplete safety documentation. Missing fire extinguisher certification.',
-                    rejectedByRole: 'department'
-                },
-                documents: {
-                    idDocument: 'path/to/id5.jpg',
-                    driverLicense: 'path/to/license5.jpg'
-                },
-                visitPeriod: {
-                    start: '2024-01-15',
-                    end: '2024-01-15'
-                }
-            },
-            {
-                id: 'REQ-2024-006',
-                visitorName: 'Lisa Wang',
-                idNumber: '3333333333',
-                nationality: 'China',
-                company: 'Quality Assurance Ltd.',
-                department: 'coordinator',
-                purpose: 'Annual audit',
-                vehicleType: 'car',
-                plateNumber: 'QA-2024',
-                submissionDate: '2024-01-11T10:00:00',
-                status: 'rejected_security',
-                departmentApproval: {
-                    approvedBy: 'dept_004',
-                    approvedAt: '2024-01-12T08:30:00',
-                    remarks: 'Scheduled audit approved'
-                },
-                rejection: {
-                    rejectedBy: 'sec_002',
-                    rejectedAt: '2024-01-13T11:00:00',
-                    reason: 'Background check revealed security concerns. Please contact security office.',
-                    rejectedByRole: 'security'
-                },
-                documents: {
-                    idDocument: 'path/to/id6.jpg',
-                    vehicleRegistration: 'path/to/reg6.jpg'
-                },
-                visitPeriod: {
-                    start: '2024-01-20',
-                    end: '2024-01-22'
-                }
+                entryTime: '2024-01-16T08:00:00',
+                exitTime: '2024-01-16T17:00:00'
             }
-        ];
-
-        let selectedRequestId = null;
-        let charts = {};
-
-        // ==================== Initialize App ====================
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeApp();
-        });
-
-        function initializeApp() {
-            updateDashboardMetrics();
-            updateTodayActivity();
-            renderCharts();
-            renderPendingTable();
-            renderApprovedTable();
-            renderRejectedTable();
-            document.getElementById('currentUser').textContent = currentUser.name;
+        ]
+    },
+    {
+        id: 'REQ-2024-005',
+        visitorName: 'Mohammed Ali',
+        idNumber: '7777777777',
+        nationality: 'Saudi Arabia',
+        company: 'Oil Transport Co.',
+        department: 'bulk_oil',
+        purpose: 'Oil delivery',
+        vehicleType: 'truck',
+        plateNumber: 'OIL-1111',
+        truckOperation: 'both',
+        submissionDate: '2024-01-12T13:30:00',
+        status: 'rejected_department',
+        rejection: {
+            rejectedBy: 'dept_003',
+            rejectedAt: '2024-01-13T09:00:00',
+            reason: 'Incomplete safety documentation. Missing fire extinguisher certification.',
+            rejectedByRole: 'department'
+        },
+        documents: {
+            idDocument: 'path/to/id5.jpg',
+            driverLicense: 'path/to/license5.jpg'
+        },
+        visitPeriod: {
+            start: '2024-01-15',
+            end: '2024-01-15'
         }
-
-        // ==================== Tab Switching ====================
-        function switchTab(tabName) {
-            const tabBtns = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabBtns.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            event.target.closest('.tab-btn').classList.add('active');
-            document.getElementById(tabName + 'Tab').classList.add('active');
+    },
+    {
+        id: 'REQ-2024-006',
+        visitorName: 'Lisa Wang',
+        idNumber: '3333333333',
+        nationality: 'China',
+        company: 'Quality Assurance Ltd.',
+        department: 'coordinator',
+        purpose: 'Annual audit',
+        vehicleType: 'car',
+        plateNumber: 'QA-2024',
+        submissionDate: '2024-01-11T10:00:00',
+        status: 'rejected_security',
+        departmentApproval: {
+            approvedBy: 'dept_004',
+            approvedAt: '2024-01-12T08:30:00',
+            remarks: 'Scheduled audit approved'
+        },
+        rejection: {
+            rejectedBy: 'sec_002',
+            rejectedAt: '2024-01-13T11:00:00',
+            reason: 'Background check revealed security concerns. Please contact security office.',
+            rejectedByRole: 'security'
+        },
+        documents: {
+            idDocument: 'path/to/id6.jpg',
+            vehicleRegistration: 'path/to/reg6.jpg'
+        },
+        visitPeriod: {
+            start: '2024-01-20',
+            end: '2024-01-22'
         }
+    }
+];
 
-        // ==================== Dashboard Metrics ====================
-        function updateDashboardMetrics() {
-            const pending = permissionRequests.filter(r => r.status === 'pending_department').length;
-            const security = permissionRequests.filter(r => r.status === 'pending_security').length;
-            const approved = permissionRequests.filter(r => r.status === 'approved').length;
-            const rejected = permissionRequests.filter(r =>
-                r.status === 'rejected_department' || r.status === 'rejected_security'
-            ).length;
+let selectedRequestId = null;
+let charts = {};
 
-            document.getElementById('pendingCount').textContent = pending;
-            document.getElementById('securityCount').textContent = security;
-            document.getElementById('approvedCount').textContent = approved;
-            document.getElementById('rejectedCount').textContent = rejected;
-            document.getElementById('pendingBadge').textContent = pending;
-        }
+// Initialize the application
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
 
-        function updateTodayActivity() {
-            const today = new Date().toISOString().split('T')[0];
+function initializeApp() {
+    updateDashboardMetrics();
+    updateTodayActivity();
+    renderCharts();
+    renderPendingTable();
+    renderApprovedTable();
+    renderRejectedTable();
 
-            let trucksToday = 0;
-            let carsToday = 0;
-            let entriesTotal = 0;
-            let exitsTotal = 0;
+    // Set current user
+    document.getElementById('currentUser').textContent = currentUser.name;
+}
 
-            permissionRequests.forEach(request => {
-                if (request.entryExitLogs) {
-                    request.entryExitLogs.forEach(log => {
-                        const logDate = log.entryTime.split('T')[0];
-                        if (logDate === today) {
-                            entriesTotal++;
-                            if (request.vehicleType === 'truck') trucksToday++;
-                            if (request.vehicleType === 'car') carsToday++;
-                        }
-                        if (log.exitTime) {
-                            const exitDate = log.exitTime.split('T')[0];
-                            if (exitDate === today) exitsTotal++;
-                        }
-                    });
+// Tab Switching
+function switchTab(tabName) {
+    // Remove active class from all tabs and content
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+    tabContents.forEach(content => content.classList.remove('active'));
+
+    // Add active class to selected tab
+    event.target.closest('.tab-btn').classList.add('active');
+    document.getElementById(tabName + 'Tab').classList.add('active');
+}
+
+// Update Dashboard Metrics
+function updateDashboardMetrics() {
+    const pending = permissionRequests.filter(r => r.status === 'pending_department').length;
+    const security = permissionRequests.filter(r => r.status === 'pending_security').length;
+    const approved = permissionRequests.filter(r => r.status === 'approved').length;
+    const rejected = permissionRequests.filter(r =>
+        r.status === 'rejected_department' || r.status === 'rejected_security'
+    ).length;
+
+    document.getElementById('pendingCount').textContent = pending;
+    document.getElementById('securityCount').textContent = security;
+    document.getElementById('approvedCount').textContent = approved;
+    document.getElementById('rejectedCount').textContent = rejected;
+    document.getElementById('pendingBadge').textContent = pending;
+}
+
+// Update Today's Activity
+function updateTodayActivity() {
+    const today = new Date().toISOString().split('T')[0];
+
+    let trucksToday = 0;
+    let carsToday = 0;
+    let entriesTotal = 0;
+    let exitsTotal = 0;
+
+    permissionRequests.forEach(request => {
+        if (request.entryExitLogs) {
+            request.entryExitLogs.forEach(log => {
+                const logDate = log.entryTime.split('T')[0];
+                if (logDate === today) {
+                    entriesTotal++;
+                    if (request.vehicleType === 'truck') trucksToday++;
+                    if (request.vehicleType === 'car') carsToday++;
+                }
+                if (log.exitTime) {
+                    const exitDate = log.exitTime.split('T')[0];
+                    if (exitDate === today) exitsTotal++;
                 }
             });
-
-            document.getElementById('trucksToday').textContent = trucksToday;
-            document.getElementById('carsToday').textContent = carsToday;
-            document.getElementById('entriesTotal').textContent = entriesTotal;
-            document.getElementById('exitsTotal').textContent = exitsTotal;
         }
+    });
 
-        // ==================== Charts ====================
-        function renderCharts() {
-            renderDepartmentChart();
-            renderStatusChart();
-        }
+    document.getElementById('trucksToday').textContent = trucksToday;
+    document.getElementById('carsToday').textContent = carsToday;
+    document.getElementById('entriesTotal').textContent = entriesTotal;
+    document.getElementById('exitsTotal').textContent = exitsTotal;
+}
 
-        function renderDepartmentChart() {
-            const ctx = document.getElementById('departmentChart').getContext('2d');
+// Render Charts
+function renderCharts() {
+    renderDepartmentChart();
+    renderStatusChart();
+}
 
-            const deptCounts = {};
-            permissionRequests.forEach(request => {
-                deptCounts[request.department] = (deptCounts[request.department] || 0) + 1;
-            });
+function renderDepartmentChart() {
+    const ctx = document.getElementById('departmentChart').getContext('2d');
 
-            const deptLabels = Object.keys(deptCounts).map(dept =>
-                dept.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
-            );
-            const deptData = Object.values(deptCounts);
+    // Count requests by department
+    const deptCounts = {};
+    permissionRequests.forEach(request => {
+        deptCounts[request.department] = (deptCounts[request.department] || 0) + 1;
+    });
 
-            if (charts.department) charts.department.destroy();
+    const deptLabels = Object.keys(deptCounts).map(dept =>
+        dept.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
+    );
+    const deptData = Object.values(deptCounts);
 
-            charts.department = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: deptLabels,
-                    datasets: [{
-                        label: 'Requests',
-                        data: deptData,
-                        backgroundColor: 'rgba(168, 197, 173, 0.7)',
-                        borderColor: 'rgba(124, 169, 130, 0.8)',
-                        borderWidth: 1,
-                        borderRadius: 8
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 1,
-                                color: '#7a8585'
-                            },
-                            grid: {
-                                color: '#f0f2f0',
-                                borderColor: '#e8ebe8'
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                color: '#7a8585'
-                            },
-                            grid: {
-                                display: false
-                            }
-                        }
+    if (charts.department) charts.department.destroy();
+
+    charts.department = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: deptLabels,
+            datasets: [{
+                label: 'Requests',
+                data: deptData,
+                backgroundColor: 'rgba(37, 99, 235, 0.7)',
+                borderColor: 'rgba(37, 99, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
                     }
                 }
-            });
+            }
         }
+    });
+}
 
-        function renderStatusChart() {
-            const ctx = document.getElementById('statusChart').getContext('2d');
+function renderStatusChart() {
+    const ctx = document.getElementById('statusChart').getContext('2d');
 
-            const statusCounts = {
-                'Pending Department': permissionRequests.filter(r => r.status === 'pending_department').length,
-                'Pending Security': permissionRequests.filter(r => r.status === 'pending_security').length,
-                'Approved': permissionRequests.filter(r => r.status === 'approved').length,
-                'Rejected': permissionRequests.filter(r =>
-                    r.status === 'rejected_department' || r.status === 'rejected_security'
-                ).length
-            };
+    // Count by status
+    const statusCounts = {
+        'Pending Department': permissionRequests.filter(r => r.status === 'pending_department').length,
+        'Pending Security': permissionRequests.filter(r => r.status === 'pending_security').length,
+        'Approved': permissionRequests.filter(r => r.status === 'approved').length,
+        'Rejected': permissionRequests.filter(r =>
+            r.status === 'rejected_department' || r.status === 'rejected_security'
+        ).length
+    };
 
-            if (charts.status) charts.status.destroy();
+    if (charts.status) charts.status.destroy();
 
-            charts.status = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(statusCounts),
-                    datasets: [{
-                        data: Object.values(statusCounts),
-                        backgroundColor: [
-                            'rgba(212, 165, 116, 0.7)',
-                            'rgba(159, 164, 201, 0.7)',
-                            'rgba(168, 197, 173, 0.7)',
-                            'rgba(201, 138, 138, 0.7)'
-                        ],
-                        borderColor: '#ffffff',
-                        borderWidth: 3
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                padding: 20,
-                                font: {
-                                    size: 13,
-                                    weight: '400'
-                                },
-                                color: '#7a8585'
-                            }
-                        }
-                    }
+    charts.status = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(statusCounts),
+            datasets: [{
+                data: Object.values(statusCounts),
+                backgroundColor: [
+                    'rgba(245, 158, 11, 0.7)',
+                    'rgba(139, 92, 246, 0.7)',
+                    'rgba(16, 185, 129, 0.7)',
+                    'rgba(239, 68, 68, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(245, 158, 11, 1)',
+                    'rgba(139, 92, 246, 1)',
+                    'rgba(16, 185, 129, 1)',
+                    'rgba(239, 68, 68, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
                 }
-            });
-        }
-
-        // ==================== Render Tables ====================
-        function renderPendingTable() {
-            const tbody = document.getElementById('pendingTableBody');
-            const pendingRequests = permissionRequests.filter(r => r.status === 'pending_department');
-
-            if (pendingRequests.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 3rem; color: var(--text-tertiary);">No pending requests</td></tr>';
-                return;
             }
-
-            tbody.innerHTML = pendingRequests.map(request => `
-                <tr>
-                    <td><strong>${request.id}</strong></td>
-                    <td>${request.visitorName}</td>
-                    <td>${formatDepartment(request.department)}</td>
-                    <td>${request.purpose}</td>
-                    <td>${formatVehicleType(request.vehicleType)}</td>
-                    <td>${formatDate(request.submissionDate)}</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm" onclick="viewRequestDetail('${request.id}')">
-                            <i class="fas fa-eye"></i> Review
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
         }
+    });
+}
 
-        function renderApprovedTable() {
-            const tbody = document.getElementById('approvedTableBody');
-            const approvedRequests = permissionRequests.filter(r => r.status === 'approved');
+// Render Tables
+function renderPendingTable() {
+    const tbody = document.getElementById('pendingTableBody');
+    const pendingRequests = permissionRequests.filter(r => r.status === 'pending_department');
 
-            if (approvedRequests.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 3rem; color: var(--text-tertiary);">No approved permissions</td></tr>';
-                return;
-            }
+    if (pendingRequests.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">No pending requests</td></tr>';
+        return;
+    }
 
-            tbody.innerHTML = approvedRequests.map(request => `
-                <tr>
-                    <td><strong>${request.id}</strong></td>
-                    <td>${request.visitorName}</td>
-                    <td>${formatDepartment(request.department)}</td>
-                    <td>${formatVehicleType(request.vehicleType)}</td>
-                    <td>${request.plateNumber || 'N/A'}</td>
-                    <td>${formatDateRange(request.visitPeriod)}</td>
-                    <td>${request.entryExitLogs ? request.entryExitLogs.length : 0}</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm" onclick="viewApprovedDetail('${request.id}')">
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
-        }
+    tbody.innerHTML = pendingRequests.map(request => `
+        <tr>
+            <td><strong>${request.id}</strong></td>
+            <td>${request.visitorName}</td>
+            <td>${formatDepartment(request.department)}</td>
+            <td>${request.purpose}</td>
+            <td>${formatVehicleType(request.vehicleType)}</td>
+            <td>${formatDate(request.submissionDate)}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" onclick="viewRequestDetail('${request.id}')">
+                    <i class="fas fa-eye"></i> Review
+                </button>
+            </td>
+        </tr>
+    `).join('');
+}
 
-        function renderRejectedTable() {
-            const tbody = document.getElementById('rejectedTableBody');
-            const rejectedRequests = permissionRequests.filter(r =>
-                r.status === 'rejected_department' || r.status === 'rejected_security'
-            );
+function renderApprovedTable() {
+    const tbody = document.getElementById('approvedTableBody');
+    const approvedRequests = permissionRequests.filter(r => r.status === 'approved');
 
-            if (rejectedRequests.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 3rem; color: var(--text-tertiary);">No rejected requests</td></tr>';
-                return;
-            }
+    if (approvedRequests.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; padding: 2rem; color: var(--text-muted);">No approved permissions</td></tr>';
+        return;
+    }
 
-            tbody.innerHTML = rejectedRequests.map(request => `
-                <tr>
-                    <td><strong>${request.id}</strong></td>
-                    <td>${request.visitorName}</td>
-                    <td>${formatDepartment(request.department)}</td>
-                    <td>${formatVehicleType(request.vehicleType)}</td>
-                    <td>${formatDate(request.submissionDate)}</td>
-                    <td><span class="status-badge rejected">${request.rejection.rejectedByRole}</span></td>
-                    <td>
-                        <button class="btn btn-outline btn-sm" onclick="viewRejectedDetail('${request.id}')">
-                            <i class="fas fa-eye"></i> View
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
-        }
+    tbody.innerHTML = approvedRequests.map(request => `
+        <tr>
+            <td><strong>${request.id}</strong></td>
+            <td>${request.visitorName}</td>
+            <td>${formatDepartment(request.department)}</td>
+            <td>${formatVehicleType(request.vehicleType)}</td>
+            <td>${request.plateNumber || 'N/A'}</td>
+            <td>${formatDateRange(request.visitPeriod)}</td>
+            <td>${request.entryExitLogs ? request.entryExitLogs.length : 0}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" onclick="viewApprovedDetail('${request.id}')">
+                    <i class="fas fa-eye"></i> View
+                </button>
+            </td>
+        </tr>
+    `).join('');
+}
 
-        // ==================== View Details ====================
-        function viewRequestDetail(requestId) {
-            selectedRequestId = requestId;
-            const request = permissionRequests.find(r => r.id === requestId);
-            if (!request) return;
+function renderRejectedTable() {
+    const tbody = document.getElementById('rejectedTableBody');
+    const rejectedRequests = permissionRequests.filter(r =>
+        r.status === 'rejected_department' || r.status === 'rejected_security'
+    );
 
-            const content = document.getElementById('requestDetailContent');
-            content.innerHTML = `
-                <div class="detail-grid">
-                    <div class="detail-section">
-                        <h3>Visitor Information</h3>
-                        <div class="detail-item">
-                            <label>Full Name</label>
-                            <p>${request.visitorName}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>ID/Iqama Number</label>
-                            <p>${request.idNumber}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Nationality</label>
-                            <p>${request.nationality}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Company</label>
-                            <p>${request.company}</p>
-                        </div>
-                    </div>
+    if (rejectedRequests.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">No rejected requests</td></tr>';
+        return;
+    }
 
-                    <div class="detail-section">
-                        <h3>Visit Details</h3>
-                        <div class="detail-item">
-                            <label>Department</label>
-                            <p>${formatDepartment(request.department)}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Purpose</label>
-                            <p>${request.purpose}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Visit Period</label>
-                            <p>${formatDateRange(request.visitPeriod)}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Submission Date</label>
-                            <p>${formatDateTime(request.submissionDate)}</p>
-                        </div>
-                    </div>
+    tbody.innerHTML = rejectedRequests.map(request => `
+        <tr>
+            <td><strong>${request.id}</strong></td>
+            <td>${request.visitorName}</td>
+            <td>${formatDepartment(request.department)}</td>
+            <td>${formatVehicleType(request.vehicleType)}</td>
+            <td>${formatDate(request.submissionDate)}</td>
+            <td><span class="status-badge rejected">${request.rejection.rejectedByRole}</span></td>
+            <td>
+                <button class="btn btn-outline btn-sm" onclick="viewRejectedDetail('${request.id}')">
+                    <i class="fas fa-eye"></i> View
+                </button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+// View Request Detail
+function viewRequestDetail(requestId) {
+    selectedRequestId = requestId;
+    const request = permissionRequests.find(r => r.id === requestId);
+    if (!request) return;
+
+    const content = document.getElementById('requestDetailContent');
+    content.innerHTML = `
+        <div class="detail-grid">
+            <div class="detail-section">
+                <h3>Visitor Information</h3>
+                <div class="detail-item">
+                    <label>Full Name</label>
+                    <p>${request.visitorName}</p>
                 </div>
+                <div class="detail-item">
+                    <label>ID/Iqama Number</label>
+                    <p>${request.idNumber}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Nationality</label>
+                    <p>${request.nationality}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Company</label>
+                    <p>${request.company}</p>
+                </div>
+            </div>
 
-                ${request.vehicleType !== 'none' ? `
-                <div class="detail-section">
-                    <h3>Vehicle Information</h3>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <label>Vehicle Type</label>
-                            <p>${formatVehicleType(request.vehicleType)}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Plate Number</label>
-                            <p>${request.plateNumber}</p>
-                        </div>
-                        ${request.truckOperation ? `
-                        <div class="detail-item">
-                            <label>Truck Operation</label>
-                            <p>${request.truckOperation.charAt(0).toUpperCase() + request.truckOperation.slice(1)}</p>
-                        </div>
-                        ` : ''}
-                    </div>
+            <div class="detail-section">
+                <h3>Visit Details</h3>
+                <div class="detail-item">
+                    <label>Department</label>
+                    <p>${formatDepartment(request.department)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Purpose</label>
+                    <p>${request.purpose}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Visit Period</label>
+                    <p>${formatDateRange(request.visitPeriod)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Submission Date</label>
+                    <p>${formatDateTime(request.submissionDate)}</p>
+                </div>
+            </div>
+        </div>
+
+        ${request.vehicleType !== 'none' ? `
+        <div class="detail-section">
+            <h3>Vehicle Information</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <label>Vehicle Type</label>
+                    <p>${formatVehicleType(request.vehicleType)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Plate Number</label>
+                    <p>${request.plateNumber}</p>
+                </div>
+                ${request.truckOperation ? `
+                <div class="detail-item">
+                    <label>Truck Operation</label>
+                    <p>${request.truckOperation.charAt(0).toUpperCase() + request.truckOperation.slice(1)}</p>
                 </div>
                 ` : ''}
+            </div>
+        </div>
+        ` : ''}
 
-                <div class="detail-section">
-                    <h3>Documents</h3>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <label>ID/Iqama Document</label>
-                            <a href="#" class="document-link" onclick="event.preventDefault(); viewDocument('${request.documents.idDocument}')">
-                                <i class="fas fa-file-image"></i> View Document
-                            </a>
-                        </div>
-                        ${request.documents.driverLicense ? `
-                        <div class="detail-item">
-                            <label>Driver's License</label>
-                            <a href="#" class="document-link" onclick="event.preventDefault(); viewDocument('${request.documents.driverLicense}')">
-                                <i class="fas fa-file-image"></i> View Document
-                            </a>
-                        </div>
-                        ` : ''}
-                    </div>
+        <div class="detail-section">
+            <h3>Documents</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <label>ID/Iqama Document</label>
+                    <a href="#" class="document-link" onclick="event.preventDefault(); viewDocument('${request.documents.idDocument}')">
+                        <i class="fas fa-file-image"></i> View Document
+                    </a>
                 </div>
-            `;
-
-            openModal('requestDetailModal');
-        }
-
-        function viewApprovedDetail(requestId) {
-            selectedRequestId = requestId;
-            const request = permissionRequests.find(r => r.id === requestId);
-            if (!request) return;
-
-            const content = document.getElementById('approvedDetailContent');
-            content.innerHTML = `
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle"></i>
-                    <div>
-                        <strong>Fully Approved Permission</strong>
-                        <p style="margin: 0;">This visitor permission has been approved by both department and security.</p>
-                    </div>
-                </div>
-
-                <div class="detail-grid">
-                    <div class="detail-section">
-                        <h3>Visitor Information</h3>
-                        <div class="detail-item">
-                            <label>Full Name</label>
-                            <p>${request.visitorName}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Company</label>
-                            <p>${request.company}</p>
-                        </div>
-                    </div>
-
-                    <div class="detail-section">
-                        <h3>Visit Details</h3>
-                        <div class="detail-item">
-                            <label>Department</label>
-                            <p>${formatDepartment(request.department)}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Visit Period</label>
-                            <p>${formatDateRange(request.visitPeriod)}</p>
-                        </div>
-                    </div>
-                </div>
-
-                ${request.entryExitLogs && request.entryExitLogs.length > 0 ? `
-                <div class="detail-section">
-                    <h3>Entry/Exit Logs</h3>
-                    <table class="logs-table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Entry Time</th>
-                                <th>Exit Time</th>
-                                <th>Duration</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${request.entryExitLogs.map((log, index) => `
-                                <tr>
-                                    <td>${index + 1}</td>
-                                    <td>${formatDateTime(log.entryTime)}</td>
-                                    <td>${log.exitTime ? formatDateTime(log.exitTime) : '<span class="status-badge pending">On Site</span>'}</td>
-                                    <td>${log.exitTime ? calculateDuration(log.entryTime, log.exitTime) : '—'}</td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
+                ${request.documents.driverLicense ? `
+                <div class="detail-item">
+                    <label>Driver's License</label>
+                    <a href="#" class="document-link" onclick="event.preventDefault(); viewDocument('${request.documents.driverLicense}')">
+                        <i class="fas fa-file-image"></i> View Document
+                    </a>
                 </div>
                 ` : ''}
-            `;
+                ${request.documents.safetyAttire ? `
+                <div class="detail-item">
+                    <label>Safety Attire Photo</label>
+                    <a href="#" class="document-link" onclick="event.preventDefault(); viewDocument('${request.documents.safetyAttire}')">
+                        <i class="fas fa-file-image"></i> View Document
+                    </a>
+                </div>
+                ` : ''}
+                ${request.documents.vehicleRegistration ? `
+                <div class="detail-item">
+                    <label>Vehicle Registration</label>
+                    <a href="#" class="document-link" onclick="event.preventDefault(); viewDocument('${request.documents.vehicleRegistration}')">
+                        <i class="fas fa-file-image"></i> View Document
+                    </a>
+                </div>
+                ` : ''}
+            </div>
+        </div>
+    `;
 
-            const uploadBtn = document.getElementById('uploadDeliveryBtn');
-            if (request.vehicleType === 'truck' &&
-                request.entryExitLogs &&
-                request.entryExitLogs.some(log => log.exitTime && !log.deliveryNote)) {
-                uploadBtn.style.display = 'inline-flex';
+    openModal('requestDetailModal');
+}
+
+// View Approved Permission Detail
+function viewApprovedDetail(requestId) {
+    selectedRequestId = requestId;
+    const request = permissionRequests.find(r => r.id === requestId);
+    if (!request) return;
+
+    const content = document.getElementById('approvedDetailContent');
+    content.innerHTML = `
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            <div>
+                <strong>Fully Approved Permission</strong>
+                <p style="margin: 0;">This visitor permission has been approved by both department and security.</p>
+            </div>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail-section">
+                <h3>Visitor Information</h3>
+                <div class="detail-item">
+                    <label>Full Name</label>
+                    <p>${request.visitorName}</p>
+                </div>
+                <div class="detail-item">
+                    <label>ID/Iqama Number</label>
+                    <p>${request.idNumber}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Nationality</label>
+                    <p>${request.nationality}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Company</label>
+                    <p>${request.company}</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Visit Details</h3>
+                <div class="detail-item">
+                    <label>Department</label>
+                    <p>${formatDepartment(request.department)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Purpose</label>
+                    <p>${request.purpose}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Visit Period</label>
+                    <p>${formatDateRange(request.visitPeriod)}</p>
+                </div>
+            </div>
+        </div>
+
+        ${request.vehicleType !== 'none' ? `
+        <div class="detail-section">
+            <h3>Vehicle Information</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <label>Vehicle Type</label>
+                    <p>${formatVehicleType(request.vehicleType)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Plate Number</label>
+                    <p>${request.plateNumber}</p>
+                </div>
+                ${request.truckOperation ? `
+                <div class="detail-item">
+                    <label>Truck Operation</label>
+                    <p>${request.truckOperation.charAt(0).toUpperCase() + request.truckOperation.slice(1)}</p>
+                </div>
+                ` : ''}
+                ${request.securityApproval && request.securityApproval.parkingSlotAvailable ? `
+                <div class="detail-item">
+                    <label>Parking</label>
+                    <p><span class="status-badge approved">Available</span></p>
+                </div>
+                ` : ''}
+            </div>
+        </div>
+        ` : ''}
+
+        <div class="detail-section">
+            <h3>Approval History</h3>
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <label>Department Approval</label>
+                    <p>${formatDateTime(request.departmentApproval.approvedAt)}</p>
+                    ${request.departmentApproval.remarks ? `<small style="color: var(--text-muted);">${request.departmentApproval.remarks}</small>` : ''}
+                </div>
+                <div class="detail-item">
+                    <label>Security Approval</label>
+                    <p>${formatDateTime(request.securityApproval.approvedAt)}</p>
+                    ${request.securityApproval.remarks ? `<small style="color: var(--text-muted);">${request.securityApproval.remarks}</small>` : ''}
+                </div>
+            </div>
+        </div>
+
+        ${request.entryExitLogs && request.entryExitLogs.length > 0 ? `
+        <div class="detail-section">
+            <h3>Entry/Exit Logs</h3>
+            <table class="logs-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Entry Time</th>
+                        <th>Exit Time</th>
+                        <th>Duration</th>
+                        <th>Delivery Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${request.entryExitLogs.map((log, index) => `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${formatDateTime(log.entryTime)}</td>
+                            <td>${log.exitTime ? formatDateTime(log.exitTime) : '<span class="status-badge pending">On Site</span>'}</td>
+                            <td>${log.exitTime ? calculateDuration(log.entryTime, log.exitTime) : '-'}</td>
+                            <td>${log.deliveryNote ? '<i class="fas fa-check-circle" style="color: var(--success-color);"></i> Uploaded' : '-'}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        </div>
+        ` : ''}
+    `;
+
+    // Show upload delivery button if truck has exited
+    const uploadBtn = document.getElementById('uploadDeliveryBtn');
+    if (request.vehicleType === 'truck' &&
+        request.entryExitLogs &&
+        request.entryExitLogs.some(log => log.exitTime && !log.deliveryNote)) {
+        uploadBtn.style.display = 'inline-flex';
+    } else {
+        uploadBtn.style.display = 'none';
+    }
+
+    openModal('approvedDetailModal');
+}
+
+// View Rejected Request Detail
+function viewRejectedDetail(requestId) {
+    selectedRequestId = requestId;
+    const request = permissionRequests.find(r => r.id === requestId);
+    if (!request) return;
+
+    const content = document.getElementById('rejectedDetailContent');
+    content.innerHTML = `
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i>
+            <div>
+                <strong>Request Rejected</strong>
+                <p style="margin: 0;">This request was rejected by ${request.rejection.rejectedByRole}.</p>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h3>Rejection Details</h3>
+            <div class="detail-item">
+                <label>Rejected By</label>
+                <p><span class="status-badge rejected">${request.rejection.rejectedByRole}</span></p>
+            </div>
+            <div class="detail-item">
+                <label>Rejection Date</label>
+                <p>${formatDateTime(request.rejection.rejectedAt)}</p>
+            </div>
+            <div class="detail-item">
+                <label>Reason</label>
+                <p>${request.rejection.reason}</p>
+            </div>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail-section">
+                <h3>Visitor Information</h3>
+                <div class="detail-item">
+                    <label>Full Name</label>
+                    <p>${request.visitorName}</p>
+                </div>
+                <div class="detail-item">
+                    <label>ID/Iqama Number</label>
+                    <p>${request.idNumber}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Nationality</label>
+                    <p>${request.nationality}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Company</label>
+                    <p>${request.company}</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Visit Details</h3>
+                <div class="detail-item">
+                    <label>Department</label>
+                    <p>${formatDepartment(request.department)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Purpose</label>
+                    <p>${request.purpose}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Vehicle Type</label>
+                    <p>${formatVehicleType(request.vehicleType)}</p>
+                </div>
+                <div class="detail-item">
+                    <label>Submission Date</label>
+                    <p>${formatDateTime(request.submissionDate)}</p>
+                </div>
+            </div>
+        </div>
+
+        ${request.departmentApproval ? `
+        <div class="detail-section">
+            <h3>Department Approval</h3>
+            <div class="detail-item">
+                <label>Approved At</label>
+                <p>${formatDateTime(request.departmentApproval.approvedAt)}</p>
+            </div>
+            ${request.departmentApproval.remarks ? `
+            <div class="detail-item">
+                <label>Remarks</label>
+                <p>${request.departmentApproval.remarks}</p>
+            </div>
+            ` : ''}
+        </div>
+        ` : ''}
+    `;
+
+    openModal('rejectedDetailModal');
+}
+
+// Approve Request
+function approveRequest() {
+    const request = permissionRequests.find(r => r.id === selectedRequestId);
+    if (!request) return;
+
+    const remarks = document.getElementById('approvalRemarks').value.trim();
+
+    // Update request status
+    request.status = 'pending_security';
+    request.departmentApproval = {
+        approvedBy: currentUser.id,
+        approvedAt: new Date().toISOString(),
+        remarks: remarks || null
+    };
+
+    // Update UI
+    updateDashboardMetrics();
+    renderPendingTable();
+    renderApprovedTable();
+    renderCharts();
+
+    closeModal('requestDetailModal');
+    showToast('Request approved and forwarded to security', 'success');
+}
+
+// Reject Request
+function rejectRequest() {
+    openModal('rejectionModal');
+}
+
+function confirmRejection() {
+    const reason = document.getElementById('rejectionReason').value.trim();
+
+    if (!reason) {
+        showToast('Please provide a reason for rejection', 'error');
+        return;
+    }
+
+    const request = permissionRequests.find(r => r.id === selectedRequestId);
+    if (!request) return;
+
+    // Update request status
+    request.status = 'rejected_department';
+    request.rejection = {
+        rejectedBy: currentUser.id,
+        rejectedAt: new Date().toISOString(),
+        reason: reason,
+        rejectedByRole: 'department'
+    };
+
+    // Update UI
+    updateDashboardMetrics();
+    renderPendingTable();
+    renderRejectedTable();
+    renderCharts();
+
+    closeModal('rejectionModal');
+    closeModal('requestDetailModal');
+    showToast('Request rejected', 'error');
+
+    // Clear rejection reason
+    document.getElementById('rejectionReason').value = '';
+}
+
+// Upload Delivery Note
+function showUploadDeliveryNote() {
+    openModal('uploadDeliveryModal');
+}
+
+function previewDeliveryNote() {
+    const file = document.getElementById('deliveryNoteFile').files[0];
+    const preview = document.getElementById('deliveryPreview');
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            if (file.type.startsWith('image/')) {
+                preview.innerHTML = `<img src="${e.target.result}" alt="Delivery Note Preview">`;
             } else {
-                uploadBtn.style.display = 'none';
+                preview.innerHTML = `<p><i class="fas fa-file-pdf"></i> ${file.name}</p>`;
             }
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
-            openModal('approvedDetailModal');
-        }
+function confirmUploadDelivery() {
+    const file = document.getElementById('deliveryNoteFile').files[0];
 
-        function viewRejectedDetail(requestId) {
-            selectedRequestId = requestId;
-            const request = permissionRequests.find(r => r.id === requestId);
-            if (!request) return;
+    if (!file) {
+        showToast('Please select a file to upload', 'error');
+        return;
+    }
 
-            const content = document.getElementById('rejectedDetailContent');
-            content.innerHTML = `
-                <div class="alert alert-danger">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <div>
-                        <strong>Request Rejected</strong>
-                        <p style="margin: 0;">This request was rejected by ${request.rejection.rejectedByRole}.</p>
-                    </div>
-                </div>
+    const request = permissionRequests.find(r => r.id === selectedRequestId);
+    if (!request) return;
 
-                <div class="detail-section">
-                    <h3>Rejection Details</h3>
-                    <div class="detail-item">
-                        <label>Rejected By</label>
-                        <p><span class="status-badge rejected">${request.rejection.rejectedByRole}</span></p>
-                    </div>
-                    <div class="detail-item">
-                        <label>Rejection Date</label>
-                        <p>${formatDateTime(request.rejection.rejectedAt)}</p>
-                    </div>
-                    <div class="detail-item">
-                        <label>Reason</label>
-                        <p>${request.rejection.reason}</p>
-                    </div>
-                </div>
+    // Find the latest log without delivery note
+    const log = request.entryExitLogs.find(l => l.exitTime && !l.deliveryNote);
+    if (log) {
+        log.deliveryNote = 'path/to/delivery-note.pdf'; // In production, upload to server
+    }
 
-                <div class="detail-grid">
-                    <div class="detail-section">
-                        <h3>Visitor Information</h3>
-                        <div class="detail-item">
-                            <label>Full Name</label>
-                            <p>${request.visitorName}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Company</label>
-                            <p>${request.company}</p>
-                        </div>
-                    </div>
+    // Update UI
+    viewApprovedDetail(selectedRequestId);
 
-                    <div class="detail-section">
-                        <h3>Visit Details</h3>
-                        <div class="detail-item">
-                            <label>Department</label>
-                            <p>${formatDepartment(request.department)}</p>
-                        </div>
-                        <div class="detail-item">
-                            <label>Purpose</label>
-                            <p>${request.purpose}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
+    closeModal('uploadDeliveryModal');
+    showToast('Delivery note uploaded successfully', 'success');
 
-            openModal('rejectedDetailModal');
-        }
+    // Clear file input
+    document.getElementById('deliveryNoteFile').value = '';
+    document.getElementById('deliveryPreview').innerHTML = '';
+}
 
-        // ==================== Actions ====================
-        function approveRequest() {
-            const request = permissionRequests.find(r => r.id === selectedRequestId);
-            if (!request) return;
+// Download Permit
+function downloadPermit() {
+    showToast('Downloading permit...', 'success');
+    // In production, this would generate and download a PDF
+}
 
-            const remarks = document.getElementById('approvalRemarks').value.trim();
+// View Document
+function viewDocument(path) {
+    showToast('Opening document...', 'success');
+    // In production, this would open the document in a new tab or modal
+}
 
-            request.status = 'pending_security';
-            request.departmentApproval = {
-                approvedBy: currentUser.id,
-                approvedAt: new Date().toISOString(),
-                remarks: remarks || null
-            };
+// Modal Functions
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('active');
+}
 
-            updateDashboardMetrics();
-            renderPendingTable();
-            renderApprovedTable();
-            renderCharts();
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('active');
+}
 
-            closeModal('requestDetailModal');
-            showToast('Request approved and forwarded to security', 'success');
-            document.getElementById('approvalRemarks').value = '';
-        }
+// Close modal when clicking outside
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('active');
+    }
+}
 
-        function rejectRequest() {
-            openModal('rejectionModal');
-        }
+// Toast Notification
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type} show`;
 
-        function confirmRejection() {
-            const reason = document.getElementById('rejectionReason').value.trim();
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
 
-            if (!reason) {
-                showToast('Please provide a reason for rejection', 'error');
-                return;
-            }
+// Table Filter
+function filterTable(tableType) {
+    const searchId = tableType + 'Search';
+    const tableBodyId = tableType + 'TableBody';
 
-            const request = permissionRequests.find(r => r.id === selectedRequestId);
-            if (!request) return;
+    const searchValue = document.getElementById(searchId).value.toLowerCase();
+    const rows = document.getElementById(tableBodyId).getElementsByTagName('tr');
 
-            request.status = 'rejected_department';
-            request.rejection = {
-                rejectedBy: currentUser.id,
-                rejectedAt: new Date().toISOString(),
-                reason: reason,
-                rejectedByRole: 'department'
-            };
+    for (let row of rows) {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchValue) ? '' : 'none';
+    }
+}
 
-            updateDashboardMetrics();
-            renderPendingTable();
-            renderRejectedTable();
-            renderCharts();
+// Table Sort
+function sortTable(tableType, columnIndex) {
+    const tableBodyId = tableType + 'TableBody';
+    const tbody = document.getElementById(tableBodyId);
+    const rows = Array.from(tbody.getElementsByTagName('tr'));
 
-            closeModal('rejectionModal');
-            closeModal('requestDetailModal');
-            showToast('Request rejected', 'error');
+    rows.sort((a, b) => {
+        const aText = a.cells[columnIndex].textContent.trim();
+        const bText = b.cells[columnIndex].textContent.trim();
+        return aText.localeCompare(bText);
+    });
 
-            document.getElementById('rejectionReason').value = '';
-        }
+    rows.forEach(row => tbody.appendChild(row));
+}
 
-        function showUploadDeliveryNote() {
-            openModal('uploadDeliveryModal');
-        }
+// Format Functions
+function formatDepartment(dept) {
+    return dept.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
 
-        function previewDeliveryNote() {
-            const file = document.getElementById('deliveryNoteFile').files[0];
-            const preview = document.getElementById('deliveryPreview');
+function formatVehicleType(type) {
+    if (type === 'none') return 'No Vehicle';
+    const icons = {
+        truck: '<i class="fas fa-truck"></i>',
+        car: '<i class="fas fa-car"></i>'
+    };
+    return `<span class="vehicle-badge">${icons[type]} ${type.charAt(0).toUpperCase() + type.slice(1)}</span>`;
+}
 
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    if (file.type.startsWith('image/')) {
-                        preview.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; border-radius: 16px; margin-top: 1.5rem; border: 1px solid var(--border-soft);">`;
-                    } else {
-                        preview.innerHTML = `<p style="margin-top: 1.5rem; font-weight: 400; color: var(--text-secondary);"><i class="fas fa-file-pdf"></i> ${file.name}</p>`;
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
-        }
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+}
 
-        function confirmUploadDelivery() {
-            const file = document.getElementById('deliveryNoteFile').files[0];
+function formatDateTime(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
 
-            if (!file) {
-                showToast('Please select a file to upload', 'error');
-                return;
-            }
+function formatDateRange(period) {
+    const start = formatDate(period.start);
+    const end = formatDate(period.end);
+    return start === end ? start : `${start} - ${end}`;
+}
 
-            const request = permissionRequests.find(r => r.id === selectedRequestId);
-            if (!request) return;
+function calculateDuration(entryTime, exitTime) {
+    const entry = new Date(entryTime);
+    const exit = new Date(exitTime);
+    const diff = exit - entry;
 
-            const log = request.entryExitLogs.find(l => l.exitTime && !l.deliveryNote);
-            if (log) {
-                log.deliveryNote = 'path/to/delivery-note.pdf';
-            }
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-            viewApprovedDetail(selectedRequestId);
+    if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+    }
+    return `${minutes}m`;
+}
 
-            closeModal('uploadDeliveryModal');
-            showToast('Delivery note uploaded successfully', 'success');
-
-            document.getElementById('deliveryNoteFile').value = '';
-            document.getElementById('deliveryPreview').innerHTML = '';
-        }
-
-        function downloadPermit() {
-            showToast('Downloading permit...', 'success');
-        }
-
-        function viewDocument(path) {
-            showToast('Opening document...', 'success');
-        }
-
-        // ==================== Modal Functions ====================
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('active');
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('active');
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('active');
-            }
-        }
-
-        // ==================== Toast ====================
-        function showToast(message, type = 'success') {
-            const toast = document.getElementById('toast');
-            toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${message}`;
-            toast.className = `toast ${type} show`;
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        // ==================== Table Functions ====================
-        function filterTable(tableType) {
-            const searchId = tableType + 'Search';
-            const tableBodyId = tableType + 'TableBody';
-
-            const searchValue = document.getElementById(searchId).value.toLowerCase();
-            const rows = document.getElementById(tableBodyId).getElementsByTagName('tr');
-
-            for (let row of rows) {
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(searchValue) ? '' : 'none';
-            }
-        }
-
-        function sortTable(tableType, columnIndex) {
-            const tableBodyId = tableType + 'TableBody';
-            const tbody = document.getElementById(tableBodyId);
-            const rows = Array.from(tbody.getElementsByTagName('tr'));
-
-            rows.sort((a, b) => {
-                const aText = a.cells[columnIndex].textContent.trim();
-                const bText = b.cells[columnIndex].textContent.trim();
-                return aText.localeCompare(bText);
-            });
-
-            rows.forEach(row => tbody.appendChild(row));
-        }
-
-        // ==================== Format Functions ====================
-        function formatDepartment(dept) {
-            return dept.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-        }
-
-        function formatVehicleType(type) {
-            if (type === 'none') return 'No Vehicle';
-            const icons = {
-                truck: '<i class="fas fa-truck"></i>',
-                car: '<i class="fas fa-car"></i>'
-            };
-            return `<span class="vehicle-badge">${icons[type]} ${type.charAt(0).toUpperCase() + type.slice(1)}</span>`;
-        }
-
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
-        }
-
-        function formatDateTime(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-
-        function formatDateRange(period) {
-            const start = formatDate(period.start);
-            const end = formatDate(period.end);
-            return start === end ? start : `${start} — ${end}`;
-        }
-
-        function calculateDuration(entryTime, exitTime) {
-            const entry = new Date(entryTime);
-            const exit = new Date(exitTime);
-            const diff = exit - entry;
-
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-            if (hours > 0) {
-                return `${hours}h ${minutes}m`;
-            }
-            return `${minutes}m`;
-        }
-
-        // ==================== Logout ====================
-        function logout() {
-            if (confirm('Are you sure you want to logout?')) {
-                showToast('Logging out...', 'success');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 1000);
-            }
-        }
+// Logout
+function logout() {
+    if (confirm('Are you sure you want to logout?')) {
+        showToast('Logging out...', 'success');
+        setTimeout(() => {
+            window.location.href = 'login.html'; // In production, redirect to login page
+        }, 1000);
+    }
+}
     </script>
 </body>
 </html>
